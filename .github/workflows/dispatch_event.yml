@@ -16,5 +16,13 @@ jobs:
         run: |
          echo "Tenant-Name: ${cli-foo}"
          echo "Tenant-ID: ${cli-bar}"
+     
+      - name: Get env vars
+        env:
+         URL: ${{ secrets.URL }}
+         USERNAME: ${{ secrets.USERNAME }}
+        run: |
+         echo "Base url: ${URL}"
+         echo "User name : ${USERNAME}"
       #- name: Test Failure
       #  run: exit 1
