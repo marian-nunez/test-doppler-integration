@@ -1,0 +1,20 @@
+name: action-test
+
+on:
+  workflow_dispatch:
+    inputs:
+      foo:
+      BAR:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Env vars
+        env:
+          cli-foo: ${{ inputs.foo }}
+          cli-bar: ${{ inputs.bar }}
+        run: |
+         echo "Tenant-Name: ${cli-foo}"
+         echo "Tenant-ID: ${cli-bar}"
+      #- name: Test Failure
+      #  run: exit 1
